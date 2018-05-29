@@ -1,0 +1,123 @@
+body {
+  margin: 0 auto;
+  color: #212121;
+  font-family: 'Arimo', sans-serif;
+  width: 330px;
+  padding: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  width: 300px;
+  margin: auto;
+}
+
+.title {
+  display: inline-block;
+  height: 35px;
+  padding-right: 4px;
+  color: #757575;
+  font-size: 12px;
+}
+
+.title > div {
+  font-size: 16px;
+  color: #212121;
+  margin-bottom: 2px;
+}
+
+.navigation {
+  display: inline-flex;
+  float: left;
+  height: 35px;
+  align-items: center;
+}
+
+.navigation > div {
+  border-radius: 50px;
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+  margin-right: 5px;
+  line-height: 26px;
+  font-size: 17px;
+  text-align: center;
+  transition: background 0.2s;
+}
+
+.navigation > div:hover {
+  background: rgba(0, 0, 0, 0.07);
+}
+
+.navigation > div:active {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.navigation > div i {
+  line-height: 26px;
+}
+
+.calendar-header {
+  display: inline-flex;
+  text-align: center;
+  height: 33px;
+  padding-top: 13px;
+  font-size: 12px;
+}
+
+.calendar-header > div {
+  flex: 1;
+  width: 43px;
+  color: #bbb;
+}
+
+.calendar {
+  display: inline-block;
+  border-top: solid 1px #cfcfcf;
+  border-right: solid 1px #cfcfcf;
+}
+
+.week {
+  display: flex;
+}
+
+.day {
+  display: inline-block;
+  width: 43px;
+  height: 43px;
+  border-left: solid 1px #e0e0e0;
+  border-bottom: solid 1px #e0e0e0;
+  padding: 4px;
+}
+
+.day:last-child {
+  background: #f9f9f9;
+}
+
+.today {
+  background: #e8e8e8;
+}
+
+.day .heb-date {
+  display: block;
+  font-size: 14px;
+  padding: 1px 1px 0 0;
+}
+
+.day .greg-date {
+  display: block;
+  text-align: left;
+  font-size: 11px;
+  margin-top: 4px;
+  color: #757575;
+}
+
+.prev-day,
+.next-day,
+.prev-day .greg-date,
+.next-day .greg-date {
+  color: #bbb;
+}
