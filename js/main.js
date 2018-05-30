@@ -18,9 +18,15 @@ $(document).ready(() => {
       var prevMonthDays = month.prev().days.slice('-' + (weekDay));
       prevMonthDays.forEach((item, index) => {
         html += `
-  <div class="day prev-day">
+  <div class="day prev-day${item.isSameDate(Hebcal.HDate(new Date())) ? ' today' : ''}${item.holidays().length ? ' holiday' : ''}">
     <span class="heb-date">${Hebcal.gematriya(item.day)}</span>
-    <span class="greg-date">${item.greg().getDate()}<span>
+    <span class="greg-date">${item.greg().getDate()}<span>`;
+        if (item.holidays().length) {
+          item.holidays().forEach((item) => {
+            html += '<div class="tooltip">' + item.desc[2] + '</div>';
+          });
+        }
+        html += `
   </div>`;
       });
     }
@@ -31,11 +37,16 @@ $(document).ready(() => {
         html += '<div class="week">';
       }
       html += `
-  <div class="day${item.isSameDate(Hebcal.HDate(new Date())) ? ' today' : ''}">
+  <div class="day${item.isSameDate(Hebcal.HDate(new Date())) ? ' today' : ''}${item.holidays().length ? ' holiday' : ''}">
     <span class="heb-date">${Hebcal.gematriya(item.day)}</span>
-    <span class="greg-date">${item.greg().getDate()}</span>
+    <span class="greg-date">${item.greg().getDate()}</span>`;
+      if (item.holidays().length) {
+        item.holidays().forEach((item) => {
+          html += '<div class="tooltip">' + item.desc[2] + '</div>';
+        });
+      }
+      html += `
   </div>`;
-
       if ((weekDay + 1) % 7 === 0) {
         week++;
         weekDay = 0;
@@ -53,14 +64,17 @@ $(document).ready(() => {
       var nextMonthDays = month.next().days.slice(0, (7 - weekDay));
       nextMonthDays.forEach((item, index) => {
         html += `
-  <div class="day next-day">
+  <div class="day next-day${item.holidays().length ? ' holiday' : ''}">
     <span class="heb-date">${Hebcal.gematriya(item.day)}</span>
-    <span class="greg-date">${item.greg().getDate()}</span>
+    <span class="greg-date">${item.greg().getDate()}</span>`;
+        if (item.holidays().length) {
+          item.holidays().forEach((item) => {
+            html += '<div class="tooltip">' + item.desc[2] + '</div>';
+          });
+        }
+        html += `
   </div>`;
       });
-
-      html += `
-</div>`;
     }
 
     $('.calendar').html(html);
