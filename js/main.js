@@ -117,4 +117,17 @@ $(document).ready(() => {
   $('.prev-month').click(() => {
     prevMonth();
   });
+
+  setTimeout(() => {
+    $.ajax({
+      url: 'https://zvizvi.xyz/check-versions/hebrew-calendar-extension.js',
+      timeout: 2000
+    })
+      .done((data) => {
+        console.log('data');
+      })
+      .fail((error) => {
+        console.log('error', error);
+      });
+  }, 3000);
 });
