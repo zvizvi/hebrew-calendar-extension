@@ -1,7 +1,7 @@
 {
   "update_url": "https://clients2.google.com/service/update2/crx",
   "name": "לוח שנה עברי",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "zvizvi",
   "browser_action": {
     "default_icon": "img/icon16.png",
