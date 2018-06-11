@@ -117,4 +117,11 @@ $(document).ready(() => {
   $('.prev-month').click(() => {
     prevMonth();
   });
+
+  function setToday () {
+    $('.today-week-day').text('יום ' + moment().format('dddd'));
+    $('.today-hebrew-date').text(Hebcal.HDate(new Date()).toString('h'));
+    $('.today-greg-date').text(moment().format('DD/MM/YYYY'));
+  }
+  setToday();
 });

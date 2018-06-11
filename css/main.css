@@ -3,14 +3,30 @@ body {
   color: #212121;
   font-family: 'Arimo', sans-serif;
   width: 330px;
-  padding: 14px;
+  padding: 14px 0;
 }
 
 * {
   box-sizing: border-box;
 }
 
-.container {
+.today-container {
+  width: 300px;
+  margin: 0 auto 13px;
+  padding: 0 1px 12px;
+  border-bottom: solid 1px #e2e2e2;
+  font-size: 12px;
+  color: #777;
+  display: flex;
+  justify-content: space-between;
+}
+
+.today-hebrew-date {
+  display: inline-block;
+  margin-right: 7px;
+}
+
+.calendar-container {
   width: 300px;
   margin: auto;
 }
