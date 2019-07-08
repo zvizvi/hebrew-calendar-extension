@@ -1,21 +1,21 @@
-var moment = window.moment;
-var Hebcal = window.Hebcal;
+let moment = window.moment;
+let Hebcal = window.Hebcal;
 moment.locale('he');
 
 $(document).ready(() => {
-  var month = new Hebcal.HDate(new Date()).getMonthObject();
+  let month = new Hebcal.HDate(new Date()).getMonthObject();
 
   function createMonthHtml (month) {
     month.setCity('jerusalem');
 
-    var week = 0;
-    var weekDay = month.days[0].getDay();
-    var html = '';
+    let week = 0;
+    let weekDay = month.days[0].getDay();
+    let html = '';
 
     // prevMonth days
     if (weekDay > 0) {
       html += '<div class="week">';
-      var prevMonthDays = month.prev().days.slice('-' + (weekDay));
+      let prevMonthDays = month.prev().days.slice('-' + (weekDay));
       prevMonthDays.forEach((item, index) => {
         html += `
   <div class="day prev-day">
@@ -50,7 +50,7 @@ $(document).ready(() => {
 
     // next month days
     if (weekDay > 0) {
-      var nextMonthDays = month.next().days.slice(0, (7 - weekDay));
+      let nextMonthDays = month.next().days.slice(0, (7 - weekDay));
       nextMonthDays.forEach((item, index) => {
         html += `
   <div class="day next-day">
@@ -69,7 +69,7 @@ $(document).ready(() => {
     // console.log(new Hebcal.HDate(1, Number(month), Number(year)).getYearObject().months[month + 1]);
 
     // Hebcal.HDate(moment('12/12/2002', 'DD/MM/YYYY').toDate()).getYearObject()
-    // var month = Hebcal.HDate(new Date(date));
+    // let month = Hebcal.HDate(new Date(date));
     // console.log(date.toISOString());
     // console.log(Hebcal.HDate(new Date(date)));
   }
@@ -77,16 +77,16 @@ $(document).ready(() => {
   selectMonth(month);
 
   function getMonthByNumber (monthNumber, yearNumber) {
-    var month = new Hebcal.HDate(1, Number(monthNumber), Number(yearNumber)).getMonthObject();
+    let month = new Hebcal.HDate(1, Number(monthNumber), Number(yearNumber)).getMonthObject();
     return month;
   }
 
   function setTitle (monthHDate) {
-    var title = '<div>' + monthHDate.getName('h') + ' ' + Hebcal.gematriya(monthHDate.year, 3) + '</div>';
+    let title = '<div>' + monthHDate.getName('h') + ' ' + Hebcal.gematriya(monthHDate.year, 3) + '</div>';
 
-    var startGregMonth = moment(monthHDate.days[0].greg()).format('MMMM');
-    var endGregMonth = moment(monthHDate.days[monthHDate.days.length - 1].greg()).format('MMMM');
-    var gregYear = moment(monthHDate.days[0].greg()).format('YYYY');
+    let startGregMonth = moment(monthHDate.days[0].greg()).format('MMMM');
+    let endGregMonth = moment(monthHDate.days[monthHDate.days.length - 1].greg()).format('MMMM');
+    let gregYear = moment(monthHDate.days[0].greg()).format('YYYY');
 
     title += ' ' + startGregMonth;
     if (startGregMonth !== endGregMonth) {
