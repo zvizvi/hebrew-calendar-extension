@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "hebcal": "^2.2.6",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "material-design-iconic-font": "^2.2.0",
     "moment": "^2.22.1"
   },
