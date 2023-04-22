@@ -7,7 +7,7 @@
     "hebcal": "^2.2.6",
     "jquery": "^3.5.0",
     "material-design-iconic-font": "^2.2.0",
-    "moment": "^2.29.2"
+    "moment": "^2.29.4"
   },
   "devDependencies": {},
   "author": "zvizvi"
